@@ -6,6 +6,7 @@ __pycache__/
 # C extensions
 *.so
 *.jsonl
+*.bz2
 # Distribution / packaging
 .Python
 build/
