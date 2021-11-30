@@ -108,13 +108,13 @@ class NewsSummaryModel(pl.LightningModule):
     return AdamW(self.parameters(), lr=0.0001)
 
 def main():
-  df = pd.read_json('./XLsum/spanish_train.jsonl', lines=True)
+  df = pd.read_json('./data/XLsum/spanish_train.jsonl', lines=True)
   df=df[[ "text","summary"]]
   df.dropna()
-  df1 = pd.read_json('./XLsum/spanish_test.jsonl', lines=True)
+  df1 = pd.read_json('./data/XLsum/spanish_test.jsonl', lines=True)
   df1=df[[ "text","summary"]]
   df1.dropna()
-  df2 = pd.read_json('./XLsum/spanish_val.jsonl', lines=True)
+  df2 = pd.read_json('./data/XLsum/spanish_val.jsonl', lines=True)
   df2=df[[ "text","summary"]]
   df2.dropna()
   df=df
