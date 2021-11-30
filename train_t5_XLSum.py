@@ -133,7 +133,7 @@ def main():
   
   checkpoint_callback= ModelCheckpoint(dirpath= "checkpoints", filename="", save_top_k=2, verbose=True, monitor="val_loss", mode="min")
   logger = TensorBoardLogger("lightning_logs", name="news-summary")  
-  trainer = pl.Trainer( logger=logger, callbacks=checkpoint_callback, max_epochs= N_EPOCHS, gpus=0, progress_bar_refresh_rate=30)
+  trainer = pl.Trainer( logger=logger, callbacks=checkpoint_callback, max_epochs= N_EPOCHS, gpus=1, progress_bar_refresh_rate=30)
   trainer.fit(model, data_module)
 
 if __name__ == '__main__':
