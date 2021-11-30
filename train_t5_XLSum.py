@@ -125,8 +125,8 @@ def main():
   val_df=df2
   MODEL_NAME="./espt5-large"
   tokenizer=T5Tokenizer.from_pretrained(MODEL_NAME)
-  N_EPOCHS=2
-  BATCH_SIZE=2
+  N_EPOCHS=3
+  BATCH_SIZE=8
 
   data_module = NewsSummaryDataModule(train_df,test_df,val_df,tokenizer,batch_size=BATCH_SIZE)
   model = NewsSummaryModel()
