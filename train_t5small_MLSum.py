@@ -108,13 +108,16 @@ class NewsSummaryModel(pl.LightningModule):
     return AdamW(self.parameters(), lr=0.0001)
 
 def main():
-  df = pd.read_json('./data/MLsum/data/es_train.txt', lines=True)
+  df = pd.read_csv('./data/MLsum/data/es_train.txt', sep="\t")
+  df.columns = ["url", "date", "text", "summary", "title", "tipo","nan"]
   df=df[[ "text","summary"]]
   df.dropna()
-  df1 = pd.read_json('./data/MLsum/data/es_test.txt', lines=True)
+  df1 = pd.read_csv('./data/MLsum/data/es_test.txt', sep="\t")
+  df1.columns = ["url", "date", "text", "summary", "title", "tipo","nan"]
   df1=df[[ "text","summary"]]
   df1.dropna()
-  df2 = pd.read_json('./data/MLsum/data/es_val.txt', lines=True)
+  df2 = pd.read_csv('./data/MLsum/data/es_val.txt', sep="\t")
+  df2.columns = ["url", "date", "text", "summary", "title", "tipo","nan"]
   df2=df[[ "text","summary"]]
   df2.dropna()
   df=df
@@ -125,7 +128,7 @@ def main():
   val_df=df2
   MODEL_NAME="./espt5-small"
   tokenizer=T5Tokenizer.from_pretrained(MODEL_NAME)
-  N_EPOCHS=3
+  N_EPOCHS=2
   BATCH_SIZE=8
 
   data_module = NewsSummaryDataModule(train_df,test_df,val_df,tokenizer,batch_size=BATCH_SIZE)
