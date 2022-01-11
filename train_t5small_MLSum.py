@@ -108,15 +108,15 @@ class NewsSummaryModel(pl.LightningModule):
     return AdamW(self.parameters(), lr=0.0001)
 
 def main():
-  df = pd.read_csv('./data/MLsum/data/es_train.txt', sep="\t")
+  df = pd.read_csv('./data/MLsum/data/es_train.txt', sep="\t",error_bad_lines=False, header=None)
   df.columns = ["url", "date", "text", "summary", "title", "tipo","nan"]
   df=df[[ "text","summary"]]
   df.dropna()
-  df1 = pd.read_csv('./data/MLsum/data/es_test.txt', sep="\t")
+  df1 = pd.read_csv('./data/MLsum/data/es_test.txt', sep="\t",error_bad_lines=False, header=None)
   df1.columns = ["url", "date", "text", "summary", "title", "tipo","nan"]
   df1=df[[ "text","summary"]]
   df1.dropna()
-  df2 = pd.read_csv('./data/MLsum/data/es_val.txt', sep="\t")
+  df2 = pd.read_csv('./data/MLsum/data/es_val.txt', sep="\t",error_bad_lines=False, header=None)
   df2.columns = ["url", "date", "text", "summary", "title", "tipo","nan"]
   df2=df[[ "text","summary"]]
   df2.dropna()
