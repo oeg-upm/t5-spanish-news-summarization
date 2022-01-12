@@ -112,10 +112,10 @@ def main():
   df=df[[ "text","summary"]]
   df.dropna()
   df1 = pd.read_json('./data/XLsum/spanish_test.jsonl', lines=True)
-  df1=df[[ "text","summary"]]
+  df1=df1[[ "text","summary"]]
   df1.dropna()
   df2 = pd.read_json('./data/XLsum/spanish_val.jsonl', lines=True)
-  df2=df[[ "text","summary"]]
+  df2=df2[[ "text","summary"]]
   df2.dropna()
   df=df
   df1=df1

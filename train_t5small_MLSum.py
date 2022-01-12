@@ -114,11 +114,11 @@ def main():
   df.dropna()
   df1 = pd.read_csv('./data/MLsum/data/es_test.txt', sep="\t",error_bad_lines=False, header=None)
   df1.columns = ["url", "date", "text", "summary", "title", "tipo","nan"]
-  df1=df[[ "text","summary"]]
+  df1=df1[[ "text","summary"]]
   df1.dropna()
   df2 = pd.read_csv('./data/MLsum/data/es_val.txt', sep="\t",error_bad_lines=False, header=None)
   df2.columns = ["url", "date", "text", "summary", "title", "tipo","nan"]
-  df2=df[[ "text","summary"]]
+  df2=df2[[ "text","summary"]]
   df2.dropna()
   df=df
   df1=df1
